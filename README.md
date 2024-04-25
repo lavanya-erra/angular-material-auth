@@ -30,7 +30,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Deploy
 
-This project is auto hooked to Vercel. A new code push will trigger the auto deployment.
+Run `ng deploy` to deploy the project.
 
 ## Further help
 
