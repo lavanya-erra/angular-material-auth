@@ -1,9 +1,16 @@
 <mat-toolbar color="primary">
   <div class="flex justify-between items-center w-full">
-    <button color="accent" mat-button routerLink="/">Auth Example</button>
-    <div class="flex gap-3">
-      <button color="accent" mat-stroked-button routerLink="/login">Login</button>
-      <button color="accent" mat-flat-button routerLink="/register">Register</button>
-    </div>
+    <button color="accent" mat-button routerLink="/">
+      <mat-icon>local_police</mat-icon>
+      <span>Auth Example</span>
+    </button>
+    @if (auth.currentUser) {
+      <button color="accent" mat-flat-button (click)="signout$.set('dashboard')">Logout</button>
+    } @else {
+      <div class="flex gap-3">
+        <button color="accent" mat-stroked-button routerLink="/login">Login</button>
+        <button color="accent" mat-flat-button routerLink="/register">Register</button>
+      </div>
+    }
   </div>
 </mat-toolbar>

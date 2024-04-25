@@ -1,0 +1,7 @@
+<div class="h-96 bg-gray-200 flex justify-center items-center w-full">
+  <div class="text-center">
+    <h1>Hello, {{ auth.currentUser?.displayName }}</h1>
+    <h4>You can try again by clicking the Logout button</h4>
+    <button (click)="signout$.set('dashboard')" color="accent" mat-flat-button>Logout</button>
+  </div>
+</div>

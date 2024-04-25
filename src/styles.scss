@@ -1,9 +1,26 @@
+@use '@angular/material' as mat;
+
+@include mat.form-field-density(-2);
+@include mat.toolbar-density(-2);
+@include mat.button-density(-1);
+
 @import 'tailwindcss/base';
-
 @import 'tailwindcss/components';
-
 @import 'tailwindcss/utilities';
-/* You can add global styles to this file, and also import other style files */
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+main {
+  height: calc(100vh - 4rem);
+}
+
+.mdc-notched-outline__notch {
+  border-right-style: hidden;
+}
+
+.mat-mdc-input-element {
+  --tw-ring-shadow: 0 0 #000 !important;
+}
+

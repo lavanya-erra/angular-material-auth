@@ -1,0 +1,55 @@
+<div class="bg-purple-300 flex justify-center items-baseline w-full h-full">
+  <mat-card class="mt-20 w-96">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+      <mat-card-subtitle>User details will be stored in Firebase</mat-card-subtitle>
+    </mat-card-header>
+    <hr class="my-3"/>
+    <form (ngSubmit)="onSubmit()" [formGroup]="registrationForm">
+      <mat-card-content>
+        <div class="flex flex-col gap-3">
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input formControlName="firstName" matInput required>
+            <mat-error *ngIf="registrationForm.controls['firstName'].invalid">
+              Please enter your first name.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input formControlName="lastName" matInput required>
+            <mat-error *ngIf="registrationForm.controls['lastName'].invalid">
+              Please enter your last name.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input email formControlName="email" matInput required>
+            <mat-error *ngIf="registrationForm.controls['email'].invalid">
+              Please enter a valid email.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput minlength="6" required type="password">
+            <mat-error *ngIf="registrationForm.controls['password'].invalid">
+              Your password must be at least 6 characters long.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <hr class="my-3"/>
+      <mat-card-footer>
+        <div class="flex justify-between items-center px-3 pt-3 pb-5">
+          <img (click)="signInWithGoogle$.set('register')" alt="Sign in with google" src="assets/images/google.svg"/>
+          <button [disabled]="registrationForm.invalid" class="w-40 !h-10" color="primary" mat-raised-button
+                  type="submit">Register
+          </button>
+        </div>
+      </mat-card-footer>
+    </form>
+  </mat-card>
+</div>

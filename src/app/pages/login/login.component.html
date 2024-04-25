@@ -1,0 +1,40 @@
+<div class="bg-blue-200 flex justify-center items-baseline w-full h-full">
+  <mat-card class="mt-20 w-96">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-subtitle>Authentication is done by Firebase</mat-card-subtitle>
+    </mat-card-header>
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <mat-card-content>
+        <div class="flex flex-col gap-3">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput required type="email">
+            <mat-error *ngIf="loginForm.controls.email.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.controls.email.hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput required type="password">
+            <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="flex justify-between items-center gap-3 px-3 pt-3 pb-5">
+          <img (click)="signInWithGoogle$.set('login')" alt="Sign in with google" src="assets/images/google.svg"/>
+          <button [disabled]="loginForm.invalid" class="w-40 !h-10" color="primary" mat-raised-button type="submit">
+            Login
+          </button>
+        </div>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

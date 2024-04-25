@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-material-login": {
+    "angular-material-authentication": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-material-login",
+            "outputPath": "dist/angular-material-authentication",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-material-login:build:production"
+              "buildTarget": "angular-material-authentication:build:production"
             },
             "development": {
-              "buildTarget": "angular-material-login:build:development"
+              "buildTarget": "angular-material-authentication:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-material-login:build"
+            "buildTarget": "angular-material-authentication:build"
           }
         },
         "test": {
@@ -96,6 +96,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "angular-material-authentication:build:production",
+              "serveTarget": "angular-material-authentication:serve:production"
+            },
+            "development": {
+              "buildTarget": "angular-material-authentication:build:development",
+              "serveTarget": "angular-material-authentication:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lerra-auth": {
+      "hosting": {
+        "angular-material-authentication": [
+          "lerra-auth"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lerra-auth"
+  }
+}
